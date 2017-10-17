@@ -26,13 +26,13 @@ function createImageCache() {
     }))
   }
 
-  function loadImages(arr) {
-    arr.forEach(item => {
-      loadSingleImage(item.name, item.src)
+  function loadImages(dict) {
+    Object.keys(dict).forEach(key => {
+      loadSingleImage(key, dict[key])
     })
   }
   
-  function imagesOnLoad(callback) {
+  function imagesOnload(callback) {
     // callback(arr)
     Promise.all(imgPromises).then(callback)
   }
